@@ -4,6 +4,17 @@ import "./App.css";
 import Card from "./Card";
 
 class App extends Component {
+  state = {
+    open: false
+  };
+
+  handleClick = () => {
+    this.setState((prevState, props) => {
+      return {
+        open: !prevState.open
+      };
+    });
+  };
   render() {
     return (
       <div className="App">
@@ -16,6 +27,7 @@ class App extends Component {
             width: "100%",
             height: "100%",
             display: "flex",
+            flexDirection: "column",
             justifyContent: "center",
             alignItems: "center"
           }}
@@ -28,6 +40,16 @@ class App extends Component {
               src="./images/mustang.png"
             />
             <p>opopoppopopopopopopo</p>
+            <button onClick={this.handleClick}>Click me</button>
+            <div className={this.state.open ? "fadein" : "fadeout"}>
+              {this.state.open ? (
+                <p>
+                  {`ABRIUABRIUABRIUABRIUABRI\nUABRIUABRIUABRIUAB\nRIUABRIUABRIUABRIUABRIUABRIU\nRIUABRIUABRIUABRIUABRIUABRIU\nRIUABRIUABRIUABRIUABRIUABRIU\nRIUABRIUABRIUABRIUABRIUABRIU`}
+                </p>
+              ) : (
+                <h1>Fechado</h1>
+              )}
+            </div>
           </Card>
         </div>
       </div>
