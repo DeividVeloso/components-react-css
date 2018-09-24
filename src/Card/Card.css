@@ -4,7 +4,7 @@
   flex-wrap: "wrap";
   justify-content: center;
   align-items: center;
-  background-color: red;
+  background-color: #fff;
   width: 350px;
   min-height: 300px;
   border-radius: 4px;
@@ -13,6 +13,7 @@
   transition-timing-function: ease-in;
   /*Horizontal Vertical Blur Size Color*/
   box-shadow: 0px 0px 2px 0.5px #cecece;
+  padding: 10px;
 }
 
 .paper:hover {
@@ -26,5 +27,5 @@
 .fadein {
   opacity: 1;
   max-height: 500px;
-  transition: max-height 3s ease-in, opacity 0.2s ease-in 1s;
+  transition: max-height 3s ease-in, opacity 0.2s ease-in 1.5s;
 }

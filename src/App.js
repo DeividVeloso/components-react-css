@@ -33,14 +33,16 @@ class App extends Component {
           }}
         >
           <Card>
-            <img
-              alt="mustang"
-              width={280}
-              height={180}
-              src="./images/mustang.png"
-            />
-            <p>opopoppopopopopopopo</p>
-            <button onClick={this.handleClick}>Click me</button>
+            <div style={{ flex: 1 }}>
+              <img
+                alt="mustang"
+                width={280}
+                height={180}
+                src="./images/mustang.png"
+              />
+              <p>opopoppopopopopopopo</p>
+              <button onClick={this.handleClick}>Click me</button>
+            </div>
             <div className={this.state.open ? "fadein" : "fadeout"}>
               {this.state.open ? (
                 <p>
