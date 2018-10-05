@@ -3,9 +3,71 @@ import logo from "./logo.svg";
 import "./App.css";
 import Card from "./Card";
 
+let carros = [
+  {
+    nome: "fusca",
+    cor: "vermelho",
+    marca: "volkswagen"
+  },
+  {
+    nome: "celta",
+    cor: "azul",
+    marca: "chevrolet"
+  },
+  {
+    nome: "astra",
+    cor: "preto",
+    marca: "chevrolet"
+  }
+];
 class App extends Component {
   state = {
     open: false
+  };
+
+  // handleGroupBy = (items, key) => {
+  //   let obj = {};
+  //   obj["meu"] = [{ nome: "Deivid" }, { nome: "Jovem" }, { nome: "Ema" }];
+  //   console.log(obj);
+  // };
+
+  handleGroupBy = (items, key) => {
+    let arr = [];
+    // let keys = [];
+    let count = 0;
+    items.map(item => {
+      let obj = {};
+      if (item[key]) {
+        obj[item[key]] = item;
+
+        if (arr.length > 0) {
+          console.log("ARR", Object.keys(arr[count]).toString());
+          console.log("item[key]", item[key]);
+
+          if (Object.keys(arr[count]).toString() === item[key]) {
+            count++;
+          }
+        }
+
+        arr.push(obj);
+        // console.log(Object.keys(arr));
+        // if (arr[index].includes(item[key])) {
+        //   console.log("Já tem");
+        // }
+      } else {
+        arr.push(item);
+      }
+    });
+
+    // let novo = [];
+    // keys.map((key, index) => {
+    //   arr.map(item => {
+    //     console.log("ITEM", item);
+    //     console.log("KEY", item[key]);
+    //   });
+    // });
+
+    console.log("NOVO", arr);
   };
 
   handleClick = () => {
@@ -32,6 +94,7 @@ class App extends Component {
             alignItems: "center"
           }}
         >
+          {this.handleGroupBy(carros, "marca")}
           <Card>
             <div style={{ flex: 1 }}>
               <img
@@ -39,6 +102,12 @@ class App extends Component {
                 width={280}
                 height={180}
                 src="./images/mustang.png"
+              />
+              <img
+                alt="mustang"
+                width={280}
+                height={180}
+                src="./images/bar-chart_animated.svg"
               />
               <p>opopoppopopopopopopo</p>
               <button onClick={this.handleClick}>Click me</button>
